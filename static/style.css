@@ -13,7 +13,7 @@ a {
 .navbar {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items:center;
   padding: 30px 60px;
   background-color: #14141f;
 }
@@ -23,6 +23,7 @@ a {
   font-weight: bold;
   color: #7748e3;
   font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+ 
 }
 
 .nav-links {
@@ -51,6 +52,7 @@ a {
   flex: 1;
   padding: 15px 25px;
   color: #ffffff;
+  background: #372e51;
 }
 
 .search-bar button {
@@ -62,4 +64,14 @@ a {
   grid-column: 1 / -1;
   text-align: center;
   color: #6e6e85;
+}
+
+.results-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 2fr));
+  gap: 30px;
+  padding: 30px 40px 50px;
+  max-width: 1500px;
+  margin:1px
+;
 }

@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+  <section class="hero">
+    <h1>Discover Your Next Anime</h1>
+    <p>Search thousands of anime titles, characters, and details.</p>
+  </section>
+
+  <section class="search-section">
+    <form action="/search" method="get" class="search-bar">
+      <input type="text" name="q" placeholder="Search anime..." />
+      <button type="submit">🔍</button>
+    </form>
+  </section>
+
+  <main class="results-grid" id="resultsGrid">
+    <p class="placeholder-text">Search for an anime to see results here.</p>
+  </main>
+
+{% endblock %}

@@ -1,0 +1,1 @@
+Jikan_Api = "https://api.jikan.moe/v4"

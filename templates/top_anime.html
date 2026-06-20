@@ -2,19 +2,6 @@
 
 {% block content %}
 
-  <section class="hero">
-    <h1>Discover Your Next Anime</h1>
-    <p>Search thousands of anime titles, characters, and details.</p>
-  </section>
-
-  <section class="search-section">
-    <form action="/search" method="get" class="search-bar">
-      <input type="text" name="q" placeholder="Search anime..." />
-      <button class="btn btn-outline-success" type="submit"><img src="{{ url_for('static', filename='search.png') }}"
-                 alt="Search"
-                 class="search-button" width="18" height="18"></button>
-    </form>
-  </section>
 
   <main class="results-grid" id="resultsGrid">
   {% if animes %}

@@ -1,10 +1,27 @@
 # VIVAK
 ---
 ## About the project 
- **VIVAK** is an anime website built by us that gives users a simple way to explore anime characters.
- The project uses **Jikan API**  that fetches anime data such as character descriptions, profiles, and other details. The main objective of our project is to provide a pleasant experience for browsing anime characters.
+ **VivaK** is a Flask-powered anime discovery platform built using the **Jikan API**. It allows users to search for anime, explore detailed information, watch trailers, browse characters, discover top-rated anime, and stay updated with currently airing titles through a modern and responsive interface.
+ 
+ ---
+ ## Features
+
+- 🔍 Search anime by title
+- 📖 View detailed anime information
+- 👥 Browse character profiles and roles
+- 🎥 Watch embedded trailers
+- 🏆 Explore top-rated anime
+- 📅 View recent/seasonal anime
+- 📱 Responsive design for desktop and mobile
 
 ---
+
+## Live Demo
+
+ https://your-render-url.onrender.com
+
+---
+
 ## How it works
 1. User searches for an anime characrter
 2. VIVAK sends a request to Jikan API
@@ -12,23 +29,71 @@
 4. Then data is displayed on the website
 
 ```
-User -> VIVAK -> Jikan API-> Character Data -> User
+User -> VIVAK -> Jikan API-> Anime Data -> User
 ```
 ---
 ## Tech Used 
 
 ### Frontend
-- Html
+- HTML 5
 - CSS
 - JS
+- Bootstrap 5
+- Jinja2
 
 ### API
-- Jikan API (Unooficial MyAnimeList API)
+- Jikan API (Unoficial MyAnimeList API)
 
 ### Backend
+- Python
 - Flask Framework
+
+# 📂 Project Structure
+
+```
+VivaK/
+│
+├── app.py
+├── config.py
+├── requirements.txt
+│
+├── static/
+│   ├── style.css
+│   ├── favicon.ico
+│   ├── logo3.png
+│   └── ...
+│
+├── templates/
+│   ├── base.html
+│   ├── index.html
+│   ├── anime_detail.html
+│   ├── top_anime.html
+│   └── updates.html
+│
+└── README.md
+```
+
 ---
 
-## Developers
-- **Y.V.S Vivekanand**
-- **Abhilekkh Krishna**
+## Contributors
+
+### Y.V.S. Vivekanand
+
+- Designed the overall project architecture
+- Developed the Home page and search functionality
+- Integrated the Jikan API for search operations
+- Built the initial frontend structure and styling
+- Contributed to UI refinement and responsive design
+
+### Abhilekkh Krishna
+
+- Developed the Anime Details module
+- Implemented Character Listing functionality
+- Built the Top Anime and Recent Updates pages
+- Integrated additional Jikan API endpoints
+- Enhanced the UI using Bootstrap and improved responsiveness
+
+---
+## ⭐ If you enjoyed this project
+
+Consider giving the repository a ⭐ on GitHub!

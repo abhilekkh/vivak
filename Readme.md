@@ -1,24 +1,28 @@
 # VIVAK
 ---
+![Python](https://img.shields.io/badge/Python-3.13-blue?logo=python)
+![Flask](https://img.shields.io/badge/Flask-3.x-black?logo=flask)
+![Bootstrap](https://img.shields.io/badge/Bootstrap-5-purple?logo=bootstrap)
+![Jikan API](https://img.shields.io/badge/API-Jikan-green)
 ## About the project 
  **VivaK** is a Flask-powered anime discovery platform built using the **Jikan API**. It allows users to search for anime, explore detailed information, watch trailers, browse characters, discover top-rated anime, and stay updated with currently airing titles through a modern and responsive interface.
  
  ---
  ## Features
 
-- 🔍 Search anime by title
-- 📖 View detailed anime information
-- 👥 Browse character profiles and roles
-- 🎥 Watch embedded trailers
-- 🏆 Explore top-rated anime
-- 📅 View recent/seasonal anime
-- 📱 Responsive design for desktop and mobile
+- Search anime by title
+- View detailed anime information
+- Browse character profiles and roles
+- Watch embedded trailers
+- Explore top-rated anime
+- View recent/seasonal anime
+- Responsive design for desktop and mobile
 
 ---
 
 ## Live Demo
 
- https://your-render-url.onrender.com
+https://vivak.onrender.com/
 
 ---
 
@@ -48,7 +52,7 @@ User -> VIVAK -> Jikan API-> Anime Data -> User
 - Python
 - Flask Framework
 
-# 📂 Project Structure
+# Project Structure
 
 ```
 VivaK/
@@ -94,6 +98,6 @@ VivaK/
 - Enhanced the UI using Bootstrap and improved responsiveness
 
 ---
-## ⭐ If you enjoyed this project
+## If you enjoyed this project
 
-Consider giving the repository a ⭐ on GitHub!
+Consider giving the repository a **Star** on GitHub!

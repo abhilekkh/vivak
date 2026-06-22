@@ -2,21 +2,18 @@
 
 {% block content %}
 
-
+<div class="home-bg">
   <main class="results-grid" id="resultsGrid">
-  {% if animes %}
+    {% if animes %}
     {% for anime in animes %}
-      <a href="/anime/{{anime.title}}-{{ anime.mal_id }}" class="anime-card" name="selected">
-        <img src="{{ anime.image_url }}" alt="{{ anime.title }}">
-        <h3 name="title">{{ anime.title }}</h3>
-        <p>Score: {{ anime.score }}</p>
-      </a>
+    <a href="/anime/{{anime.title}}-{{ anime.mal_id }}" class="anime-card" name="selected">
+      <img src="{{ anime.image_url }}" alt="{{ anime.title }}">
+      <h3 name="title">{{ anime.title }}</h3>
+      <p>Score: {{ anime.score }}</p>
+    </a>
     {% endfor %}
-  {% else %}
-    <footer>
-      <p class="placeholder-text">Search for an anime to see results here.</p>
-    </footer> 
-    
-  {% endif %}
+</div>
+
+{% endif %}
 </main>
 {% endblock %}

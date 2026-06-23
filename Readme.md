@@ -51,33 +51,33 @@ The project also demonstrates clean backend architecture by separating routing, 
 
 ## Home Page
 
-![Home](screenshots/home.png)
+![Home](static/screenshots/home.png)
 
 ---
 
 ## Anime Details
 
 <p align="center">
-  <img src="screenshots/details_1.png" width="48%">
-  <img src="screenshots/details_2.png" width="48%">
+  <img src="static/screenshots/details_1.png" width="48%">
+  <img src="static/screenshots/details_2.png" width="48%">
 </p>
 
 <p align="center">
-  <img src="screenshots/details_3.png" width="48%">
-  <img src="screenshots/details_4.png" width="48%">
+  <img src="static/screenshots/details_3.png" width="48%">
+  <img src="static/screenshots/details_4.png" width="48%">
 </p>
 
 ---
 
 ## Top Anime
 
-![Top Anime](screenshots/top_anime.png)
+![Top Anime](static/screenshots/top_anime.png)
 
 ---
 
 ## Recent Updates
 
-![Recent Updates](screenshots/recent_anime.png)
+![Recent Updates](static/screenshots/recent_anime.png)
 
 ---
 

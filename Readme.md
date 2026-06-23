@@ -189,11 +189,12 @@ python app.py
 
 ## Y. V. S. Vivekanand
 
-* Designed the overall project architecture
-* Developed the Home page and search functionality
-* Integrated the Jikan API for anime search
-* Built the initial frontend structure and styling
-* Contributed to UI refinement and responsive design
+* Designed the basic Flask backend architecture and overall structure
+* Built the Search feature with UI, routes, and live result rendering
+* Integrated the Jikan API for real-time anime data 
+* Built the frontend interface using custom CSS styling
+* Implemented responsive layouts, hover effects, and overall UI refinement
+
 
 ## Abhilekkh Krishna
 

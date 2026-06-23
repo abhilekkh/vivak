@@ -6,7 +6,7 @@
   <main class="results-grid" id="resultsGrid">
     {% if animes %}
     {% for anime in animes %}
-    <a href="/anime/{{anime.title}}-{{ anime.mal_id }}" class="anime-card" name="selected">
+    <a href="/anime/{{anime.title|urlencode }}-{{ anime.mal_id }}" class="anime-card" name="selected">
       <img src="{{ anime.image_url }}" alt="{{ anime.title }}">
       <h3 name="title">{{ anime.title }}</h3>
       <p>Score: {{ anime.score }}</p>

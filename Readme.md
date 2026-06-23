@@ -187,7 +187,7 @@ python app.py
 
 # Contributors
 
-## Y. V. S. Vivekanand
+## Y.V.S. Vivekanand
 
 * Designed the basic Flask backend architecture and overall structure
 * Built the Search feature with UI, routes, and live result rendering

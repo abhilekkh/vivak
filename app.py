@@ -42,4 +42,4 @@ def recentupdates():
     return render_template("updates.html", animes=animes)
 
 if __name__ == "__main__":
-    app.run(debug =True)
+    app.run()

@@ -1,10 +1,19 @@
 from config import Jikan_Api, cache
 import requests
 
-def fetch(endpoint,**params):
-    response=requests.get(f"{Jikan_Api}/{endpoint}",params=params,timeout=10)
-    response.raise_for_status()
-    return response.json()
+def fetch(endpoint, **params):
+    try:
+        response = requests.get(
+            f"{Jikan_Api}/{endpoint}",
+            params=params,
+            timeout=3
+        )
+        response.raise_for_status()
+        return response.json()
+
+    except requests.exceptions.RequestException as e:
+        print(f"Jikan API error: {e}")
+        return None
 
 @cache.memoize(timeout=3600)
 def get_search_result(query):

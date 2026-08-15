@@ -15,6 +15,9 @@ def format_anime_detailed_list(mal_id):
     data=get_anime_details(mal_id)
     character_data=get_character_details(mal_id)
 
+    if data is None or character_data is None:
+        return None
+
     item=data["data"]
     char_item=character_data["data"]
     return  {

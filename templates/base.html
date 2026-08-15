@@ -44,6 +44,13 @@
         </nav>
       </div>
     </header>
+    {% if error %}
+      <div class="container mt-4">
+        <div class="alert alert-warning text-center" role="alert">
+          ⚠️ {{ error }}
+        </div>
+      </div>
+    {% endif %}
 
     {% block content %} {% endblock %}
     <footer class="footer">

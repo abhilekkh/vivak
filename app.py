@@ -20,7 +20,16 @@ def search():
         return render_template("index.html", animes=[])
 
 
-    animes=format_anime_list(get_search_result(query))
+    result = get_search_result(query)
+
+    if result is None:
+        return render_template(
+            "index.html",
+            animes=[],
+            error="Anime data is temporarily unavailable. Please try again later."
+        )
+
+    animes = format_anime_list(result)
     return render_template("index.html", animes=animes)
 
 @app.route("/anime/<path:selected>")
@@ -29,16 +38,40 @@ def show_anime_details(selected):
     mal_id=selected.rsplit('-',1)[1]
 
     details=format_anime_detailed_list(mal_id)
+    if details is None:
+        return render_template(
+            "anime_detail.html",
+            details=None,
+            error="Anime data is temporarily unavailable. Please try again later."
+        )
+
     return render_template("anime_detail.html",details=details)
 
 @app.route("/topanime")
 def topanime():
-    animes=format_anime_list(get_top_anime())
+    result = get_top_anime()
+
+    if result is None:
+        return render_template(
+            "top_anime.html",
+            animes=[],
+            error="Anime data is temporarily unavailable. Please try again later."
+        )
+    animes = format_anime_list(result)
     return render_template("top_anime.html",animes=animes)
 
 @app.route("/recentupdates")
 def recentupdates():
-    animes= format_anime_list(get_recent_anime())
+    result = get_recent_anime()
+
+    if result is None:
+        return render_template(
+            "updates.html",
+            animes=[],
+            error="Anime data is temporarily unavailable. Please try again later."
+        )
+
+    animes = format_anime_list(result)
     return render_template("updates.html", animes=animes)
 
 if __name__ == "__main__":

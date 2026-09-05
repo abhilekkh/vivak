@@ -1,7 +1,7 @@
-# <h1 align="center">VIVAK</h1>
+﻿# <h1 align="center">VIVAK</h1>
 
 <p align="center">
-  <strong>Anime Discovery Platform built with Flask and the Jikan REST API</strong>
+  <strong>Anime Discovery Platform built with Flask and the AniList GraphQL API</strong>
 </p>
 
 <p align="center">
@@ -9,7 +9,7 @@
 ![Python](https://img.shields.io/badge/Python-3.13-blue?logo=python)
 ![Flask](https://img.shields.io/badge/Flask-3.x-black?logo=flask)
 ![Bootstrap](https://img.shields.io/badge/Bootstrap-5-purple?logo=bootstrap)
-![Jikan API](https://img.shields.io/badge/API-Jikan-green)
+![AniList API](https://img.shields.io/badge/API-AniList_GraphQL-00b4d8)
 ![GitHub stars](https://img.shields.io/github/stars/abhilekkh/vivak?style=social)
 
 </p>
@@ -27,23 +27,24 @@
 
 # About
 
-**VivaK** is a Flask-powered anime discovery platform built using the **Jikan REST API**. It enables users to search for anime, explore detailed information, watch trailers, browse character information, discover top-rated anime, and stay updated with currently airing titles through a modern, responsive interface.
+**VivaK** is a Flask-powered anime discovery platform built using the **AniList GraphQL API**. It enables users to search for anime, explore detailed information, watch trailers, browse character information, discover top-rated anime, and stay updated with the current season's titles through a modern, responsive interface.
 
-The project also demonstrates clean backend architecture by separating routing, API communication, configuration, caching, and data formatting into dedicated modules.
+The project follows a clean modular architecture that separates routing, API communication, configuration, caching, and data formatting into dedicated modules.
 
 ---
 
 # Features
 
-* 🔍 Search anime using the Jikan REST API
-* 📖 View detailed anime information
-* 👥 Browse anime character listings
-* 🎬 Watch official anime trailers
-* ⭐ Browse top-rated anime
-* 📺 Explore currently airing anime
-* ⚡ Memoized API requests using **Flask-Caching (SimpleCache)** to reduce redundant API calls and improve response times
+* 🔍 Search anime by title
+* 📖 View detailed anime information (episodes, score, status, studios, producers, synopsis and more)
+* 👥 Browse anime character listings with roles
+* 🎬 Watch official YouTube trailers embedded on the detail page
+* ⭐ Browse top-rated anime globally
+* 📺 Explore currently airing seasonal anime
+* ⚡ Memoized API requests using **Flask-Caching (SimpleCache)** to reduce redundant API calls
+* 🔁 Automatic retry with backoff on API failures and rate limits
 * 🧩 Modular backend architecture with dedicated API, utility, configuration, and routing layers
-* 📱 Responsive Bootstrap-based interface
+* 📱 Responsive Bootstrap 5 interface
 
 ---
 
@@ -89,22 +90,23 @@ The project also demonstrates clean backend architecture by separating routing, 
 
 # Project Architecture
 
-The application follows a modular architecture that separates routing, API communication, configuration, caching, and data formatting, making the codebase easier to maintain, extend, and test.
+The application follows a modular architecture that separates routing, API communication, configuration, caching, and data formatting.
 
 ```text
-                Browser
-                   │
-                   ▼
-        Flask Routes (app.py)
-                   │
-                   ▼
-      Utility Layer (utils.py)
-                   │
-                   ▼
- Cached API Service Layer (api.py)
-                   │
-                   ▼
-        Jikan REST API Server
+              Browser
+                 │
+                 ▼
+      Flask Routes (app.py)
+                 │
+                 ▼
+    Utility Layer (utils.py)
+                 │
+                 ▼
+Cached API Service Layer (api.py)
+                 │
+                 ▼
+    AniList GraphQL API Server
+       (graphql.anilist.co)
 ```
 
 ---
@@ -115,7 +117,6 @@ The application follows a modular architecture that separates routing, API commu
 
 * HTML5
 * CSS3
-* JavaScript
 * Bootstrap 5
 * Jinja2
 
@@ -124,10 +125,11 @@ The application follows a modular architecture that separates routing, API commu
 * Python
 * Flask
 * Flask-Caching
+* Gunicorn (production server)
 
 ## API
 
-* Jikan REST API (Unofficial MyAnimeList API)
+* **AniList GraphQL API** — free, no auth required, highly reliable
 
 ---
 
@@ -136,10 +138,11 @@ The application follows a modular architecture that separates routing, API commu
 ```text
 VivaK/
 │
-├── app.py
-├── api.py
-├── utils.py
-├── config.py
+├── app.py            ← Flask app and all URL routes
+├── api.py            ← AniList GraphQL queries, fetch logic, caching
+├── utils.py          ← Formats raw API data for templates
+├── config.py         ← API base URL and cache object
+├── Procfile          ← Gunicorn startup config for Render
 ├── requirements.txt
 │
 ├── static/
@@ -162,7 +165,7 @@ VivaK/
 │   ├── top_anime.html
 │   └── updates.html
 │
-└── README.md
+└── Readme.md
 ```
 
 ---
@@ -176,12 +179,19 @@ git clone https://github.com/abhilekkh/vivak.git
 # Navigate into the project
 cd vivak
 
+# Create and activate a virtual environment
+python -m venv env
+env\Scripts\activate      # Windows
+source env/bin/activate   # macOS/Linux
+
 # Install dependencies
 pip install -r requirements.txt
 
 # Run the application
 python app.py
 ```
+
+Then open `http://127.0.0.1:5000` in your browser.
 
 ---
 
@@ -191,19 +201,20 @@ python app.py
 
 * Designed the basic Flask backend architecture and overall structure
 * Built the Search feature with UI, routes, and live result rendering
-* Integrated the Jikan API for real-time anime data 
+* Integrated the AniList GraphQL API for real-time anime data
 * Built the frontend interface using custom CSS styling
 * Implemented responsive layouts, hover effects, and overall UI refinement
-
 
 ## Abhilekkh Krishna
 
 * Developed the Anime Details module
 * Implemented Character Listing functionality
 * Built the Top Anime and Recent Updates pages
-* Integrated additional Jikan API endpoints
+* Integrated additional API endpoints
 * Implemented API caching using Flask-Caching
 * Enhanced the UI using Bootstrap and improved responsiveness
+* Migrated backend from Jikan (MyAnimeList) to AniList GraphQL API
+* Added retry logic and production deployment config (Procfile)
 
 ---
 
@@ -211,9 +222,9 @@ python app.py
 
 * 🔹 Pagination for anime listings
 * 🔹 Search autocomplete
-* 🔹 Advanced filtering
+* 🔹 Advanced filtering (genre, year, type)
 * 🔹 User favorites and watchlists
-* 🔹 Redis-based caching for production
+* 🔹 Redis-based caching for production persistence
 * 🔹 Dark/Light theme toggle
 * 🔹 User authentication
 
@@ -221,9 +232,9 @@ python app.py
 
 # Acknowledgements
 
-* **Jikan REST API** for providing anime data
-* **MyAnimeList** for the original anime database
-* **Flask** and the open-source community
+* **AniList** for the free, reliable GraphQL anime API
+* **Flask** and the open-source Python community
+* **Bootstrap** for the responsive UI components
 
 ---
 

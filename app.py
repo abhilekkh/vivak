@@ -26,7 +26,7 @@ def search():
         return render_template(
             "index.html",
             animes=[],
-            error="Anime data is temporarily unavailable. Please try again later."
+            error="MyAnimeList is currently down or unreachable. Please try again in a few minutes."
         )
 
     animes = format_anime_list(result)
@@ -42,7 +42,7 @@ def show_anime_details(selected):
         return render_template(
             "anime_detail.html",
             details=None,
-            error="Anime data is temporarily unavailable. Please try again later."
+            error="MyAnimeList is currently down or unreachable. Please try again in a few minutes."
         )
 
     return render_template("anime_detail.html",details=details)
@@ -55,7 +55,7 @@ def topanime():
         return render_template(
             "top_anime.html",
             animes=[],
-            error="Anime data is temporarily unavailable. Please try again later."
+            error="MyAnimeList is currently down or unreachable. Please try again in a few minutes."
         )
     animes = format_anime_list(result)
     return render_template("top_anime.html",animes=animes)
@@ -68,7 +68,7 @@ def recentupdates():
         return render_template(
             "updates.html",
             animes=[],
-            error="Anime data is temporarily unavailable. Please try again later."
+            error="MyAnimeList is currently down or unreachable. Please try again in a few minutes."
         )
 
     animes = format_anime_list(result)

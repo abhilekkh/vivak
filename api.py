@@ -5,16 +5,16 @@ import time
 def fetch(endpoint, **params):
     url = f"{Jikan_Api}/{endpoint}"
     retries = 3
-    backoff = 2  # seconds
+    backoff = 3  # seconds
 
     for attempt in range(retries):
         try:
             response = requests.get(url, params=params, timeout=10)
 
-            # Handle rate limiting (429) with a wait + retry
-            if response.status_code == 429:
+            # Retry on rate limit (429) or any server error (5xx)
+            if response.status_code == 429 or response.status_code >= 500:
                 wait = backoff * (attempt + 1)
-                print(f"Jikan rate limit hit. Retrying in {wait}s... (attempt {attempt + 1}/{retries})")
+                print(f"Jikan returned {response.status_code}. Retrying in {wait}s... (attempt {attempt + 1}/{retries})")
                 time.sleep(wait)
                 continue
 

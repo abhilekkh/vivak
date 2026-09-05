@@ -1,7 +1,7 @@
-import re
+﻿import re
 from api import get_anime_details
 
-# ── Helpers ──────────────────────────────────────────────────────────────────
+# â”€â”€ Helpers â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
 def strip_html(text):
     if not text:
@@ -35,7 +35,7 @@ STATUS_MAP = {
     "NOT_YET_RELEASED": "Not yet aired", "CANCELLED": "Cancelled", "HIATUS": "On Hiatus"
 }
 
-# ── Public formatters ────────────────────────────────────────────────────────
+# â”€â”€ Public formatters â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
 def format_anime_list(data):
     items = data.get("data", {}).get("Page", {}).get("media", [])
@@ -45,7 +45,7 @@ def format_anime_list(data):
         result.append({
             "mal_id":    item.get("id"),
             "title":     item.get("title", {}).get("english") or item.get("title", {}).get("romaji") or "N/A",
-            "image_url": item.get("coverImage", {}).get("medium"),
+            "image_url": item.get("coverImage", {}).get("extraLarge"),
             "score":     round(score / 10, 1) if score else "N/A"
         })
     return result
@@ -104,7 +104,7 @@ def format_anime_detailed_list(anime_id):
     themes = [t["name"] for t in (item.get("tags") or []) if t.get("category") in theme_categories][:8]
 
     return {
-        "image":         item.get("coverImage", {}).get("large") or "N/A",
+        "image":         item.get("coverImage", {}).get("extraLarge") or "N/A",
         "youtube_embed": youtube_embed,
         "title":         item.get("title", {}).get("english") or item.get("title", {}).get("romaji") or "N/A",
         "episodes":      item.get("episodes") or "N/A",
@@ -127,3 +127,4 @@ def format_anime_detailed_list(anime_id):
         "producers":     producers,
         "character":     characters
     }
+

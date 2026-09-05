@@ -1,4 +1,4 @@
-from config import AniList_Api, cache
+﻿from config import AniList_Api, cache
 import requests
 import time
 from datetime import datetime
@@ -11,7 +11,7 @@ query ($search: String, $page: Int, $perPage: Int) {
     media(search: $search, type: ANIME) {
       id
       title { romaji english }
-      coverImage { medium }
+      coverImage { extraLarge }
       averageScore
     }
   }
@@ -24,7 +24,7 @@ query ($page: Int, $perPage: Int) {
     media(sort: SCORE_DESC, type: ANIME, status_not: NOT_YET_RELEASED) {
       id
       title { romaji english }
-      coverImage { medium }
+      coverImage { extraLarge }
       averageScore
     }
   }
@@ -37,7 +37,7 @@ query ($season: MediaSeason, $seasonYear: Int, $page: Int, $perPage: Int) {
     media(season: $season, seasonYear: $seasonYear, type: ANIME, sort: POPULARITY_DESC) {
       id
       title { romaji english }
-      coverImage { medium }
+      coverImage { extraLarge }
       averageScore
     }
   }
@@ -49,7 +49,7 @@ query ($id: Int) {
   Media(id: $id, type: ANIME) {
     id
     title { romaji english }
-    coverImage { large }
+    coverImage { extraLarge }
     trailer { id site }
     episodes
     source

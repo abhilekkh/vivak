@@ -1,4 +1,4 @@
-from flask_caching import Cache
+﻿from flask_caching import Cache
 
-Jikan_Api = "https://api.jikan.moe/v4"
-cache=Cache()
+AniList_Api = "https://graphql.anilist.co"
+cache = Cache()

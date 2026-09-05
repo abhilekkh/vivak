@@ -1,7 +1,7 @@
 ﻿import re
 from api import get_anime_details
 
-# â”€â”€ Helpers â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+# Helpers
 
 def strip_html(text):
     if not text:
@@ -35,8 +35,7 @@ STATUS_MAP = {
     "NOT_YET_RELEASED": "Not yet aired", "CANCELLED": "Cancelled", "HIATUS": "On Hiatus"
 }
 
-# â”€â”€ Public formatters â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-
+# Public formatters 
 def format_anime_list(data):
     items = data.get("data", {}).get("Page", {}).get("media", [])
     result = []
